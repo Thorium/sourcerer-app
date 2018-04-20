@@ -1,4 +1,6 @@
-// Extractor for F# language
+// Copyright 2018 Sourcerer Inc. All Rights Reserved.
+// Author: Tuomas Hietanen
+// Author: Liubov Yaronskaya (lyaronskaya@sourcerer.io)
 
 package app.extractors
 
@@ -9,9 +11,10 @@ class FSharpExtractor : ExtractorInterface {
     companion object {
         val LANGUAGE_NAME = "fsharp"
         val FILE_EXTS = listOf("fs", "fsx")
-        val LIBRARIES = ExtractorInterface.getLibraries("fs")
+        // The behaviour of csharp library classifier is the same as for csharp.
+        val LIBRARIES = ExtractorInterface.getLibraries("cs")
         val evaluator by lazy {
-            ExtractorInterface.getLibraryClassifier(LANGUAGE_NAME)
+            ExtractorInterface.getLibraryClassifier("csharp")
         }
         val importRegex = Regex("""^.*open\s+(\w+[.\w+]*)""")
         val commentRegex = Regex("""^([^\n]*//)[^\n]*""")
