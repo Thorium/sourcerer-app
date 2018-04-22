@@ -62,3 +62,10 @@ uglify
 http-proxy
 purify
 ng-file-upload
+jquery.signalR
+rx.lite
+modernizr
+rickshaw
+yaml
+html5shiv
+tether
